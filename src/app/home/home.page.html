@@ -1,21 +1,17 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Home Page - Page 1
+      First Page
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  Type URL: <u>"localhost:8100/another-page"</u> to proceed to the next Page
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">
       </ion-title>
     </ion-toolbar>
   </ion-header>
-  <div id="container">
-    <ion-button (click) = "Authentication('button1')">Go by Link</ion-button>
-    <ion-button (click) = "Authentication('button2')">Go by Event</ion-button><br>
-    <ion-button (click) = "goWithAuthentication()">Authorize</ion-button>
-  </div>
 </ion-content>

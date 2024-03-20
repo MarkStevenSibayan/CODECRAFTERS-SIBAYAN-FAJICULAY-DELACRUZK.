@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { MyCustomPagePageRoutingModule } from './my-custom-page-routing.module';
 
 import { MyCustomPagePage } from './my-custom-page.page';
-import { MyCustomPageWithIdPage } from './my-custom-page-with-id/my-custom-page-with-id';
+import { MyCustomPageWithId } from './my-custom-page-with-id/my-custom-page-with-id';
 
 @NgModule({
   imports: [
@@ -16,6 +16,9 @@ import { MyCustomPageWithIdPage } from './my-custom-page-with-id/my-custom-page-
     IonicModule,
     MyCustomPagePageRoutingModule
   ],
-  declarations: [MyCustomPagePage, MyCustomPageWithIdPage]
+  declarations: [
+    MyCustomPagePage,
+    MyCustomPageWithId
+  ]
 })
 export class MyCustomPagePageModule {}

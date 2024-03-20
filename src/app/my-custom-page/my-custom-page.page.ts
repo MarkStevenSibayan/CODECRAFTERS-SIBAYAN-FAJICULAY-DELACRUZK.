@@ -1,52 +1,64 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-custom-page',
   templateUrl: './my-custom-page.page.html',
-  styleUrls: ['my-custom-page.scss'],
+  styleUrls: ['./my-custom-page.page.scss'],
 })
-export class MyCustomPagePage {
-  linkAuthenticate = false;
-  constructor(
-    private AuthenticationService: AuthenticationService,
-    private router: Router
-  ) {}
+export class MyCustomPagePage implements OnInit {
 
-  goWithAuthentication() {
-    this.AuthenticationService.authenticate = true;
-    this.linkAuthenticate = true;
-    if (this.AuthenticationService.authenticate) {
-      alert('Authentication Complete');
-    }
-    //this.router.navigate(['another']);
+  constructor(private AuthenticationService : AuthenticationService, private router: Router) { }
+  goToMyCustomPage() {
+    this.router.navigate(['my-custom-page/my-custom-page-with-id/',23])
   }
 
-  goToCustomPage() {
-    if (this.AuthenticationService.authenticate) {
-      this.router.navigate(['third-custom-page']);
-    } else {
-      alert('Please Authenticate first');
-    }
-  }
-  ionViewWillEnter() {
-    console.log('ionViewWillEnter');
+  goWithAuthentication(){
+    this.AuthenticationService.authenticated = true;
+
   }
 
-  ionViewDidEnter() {
-    console.log('ionViewDidEnter');
+
+
+  Authentication(buttonName: string){
+
+      if(buttonName === 'button1'){
+        this.router.navigate(['blank']);
+      }else if (buttonName === 'button2'){
+        
+        if(this.AuthenticationService.authenticated == true){
+          this.router.navigate(['page2/my-custom-page-with-id/',1]);
+        }
+      }
+    this.AuthenticationService.authenticated = false;
+  }
+  
+  event(){
+    this.router.navigate(['blank']);
+}
+
+  ngOnInit(): void {
+    
   }
 
-  ionViewWillLeave() {
-    console.log('ionViewWillLeave');
+  ngOnDestroy(): void {
+    
+  }
+  
+  ionViewWillEnter(){
+    console.log('You Will Enter the Second Page');
   }
 
-  ionViewDidLeave() {
-    console.log('ionViewDidLeave');
+  ionViewDidEnter(){
+    console.log('You Did Enter the Second Page');
   }
 
-  ngOnDestroy() {
-    console.log('ngOnDestroy');
+  ionViewWillLeave(){
+    console.log('You Will Leave the Second Page');
+  }
+
+  ionViewDidLeave(){
+    console.log('You Did Leave the Second Page');
   }
 }

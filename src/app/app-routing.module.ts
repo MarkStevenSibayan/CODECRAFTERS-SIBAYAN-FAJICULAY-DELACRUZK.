@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthenticationService } from './authentication.service';
 import { AnotherPage } from './another/another.page';
-import { CustomComponent } from './shared/custom-component';
+import { customPage } from './shared/custom-component';
 
 const routes: Routes = [
   {
@@ -25,7 +25,7 @@ const routes: Routes = [
   },
   {
     path: 'blank',
-    component: CustomComponent
+    component: customPage
   },
 ];
 
